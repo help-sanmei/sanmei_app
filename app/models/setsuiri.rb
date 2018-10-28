@@ -1,0 +1,2 @@
+class Setsuiri < ApplicationRecord
+end

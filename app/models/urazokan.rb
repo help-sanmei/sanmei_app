@@ -1,0 +1,2 @@
+class Urazokan < ApplicationRecord
+end

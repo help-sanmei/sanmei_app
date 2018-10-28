@@ -1,0 +1,2 @@
+class Gogyocng < ApplicationRecord
+end

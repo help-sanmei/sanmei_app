@@ -1,0 +1,2 @@
+class Gogyoshigo < ApplicationRecord
+end

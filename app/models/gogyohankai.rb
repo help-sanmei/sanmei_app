@@ -1,0 +1,2 @@
+class Gogyohankai < ApplicationRecord
+end

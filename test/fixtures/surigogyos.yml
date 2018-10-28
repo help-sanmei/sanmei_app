@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shi: 1
+  setsuiri: 1
+  surigogyo: 1
+
+two:
+  shi: 1
+  setsuiri: 1
+  surigogyo: 1

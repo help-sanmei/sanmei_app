@@ -1,0 +1,2 @@
+class Surigogyo < ApplicationRecord
+end

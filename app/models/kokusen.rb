@@ -1,0 +1,2 @@
+class Kokusen < ApplicationRecord
+end

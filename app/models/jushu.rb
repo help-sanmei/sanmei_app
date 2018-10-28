@@ -1,0 +1,2 @@
+class Jushu < ApplicationRecord
+end

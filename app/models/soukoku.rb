@@ -1,0 +1,2 @@
+class Soukoku < ApplicationRecord
+end

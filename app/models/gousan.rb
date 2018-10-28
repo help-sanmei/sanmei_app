@@ -1,0 +1,2 @@
+class Gousan < ApplicationRecord
+end
