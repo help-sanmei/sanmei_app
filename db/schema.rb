@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_063959) do
+ActiveRecord::Schema.define(version: 2018_12_21_223449) do
 
   create_table "gogyocngs", force: :cascade do |t|
     t.integer "shi"
@@ -78,9 +78,17 @@ ActiveRecord::Schema.define(version: 2018_10_06_063959) do
 
   create_table "setsuiris", force: :cascade do |t|
     t.integer "year"
-    t.string "setuiri_str"
+    t.string "setsuiri_str"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shugoshins", force: :cascade do |t|
+    t.integer "shi_m"
+    t.string "shugoshin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "kan_d"
   end
 
   create_table "soukokus", force: :cascade do |t|
@@ -105,6 +113,20 @@ ActiveRecord::Schema.define(version: 2018_10_06_063959) do
     t.integer "urazokan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "first_name"
+    t.string "family_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "zokans", force: :cascade do |t|

@@ -1,0 +1,22 @@
+<h1>ユーザー情報を編集する</h1>
+<hr>
+<% if user_signed_in? %>
+  <% if @user.id == current_user.id %>
+    <hr>
+    <%= form_for @user do |f| %>
+    <p>名字</p>
+    <%= f.text_field :family_name, :class => "form-control my-form" %>
+    <p>名前</p>
+    <%= f.text_field :first_name, :class => "form-control my-form" %>
+    <hr>
+    <p>メールアドレス</p>
+    <%= f.text_field :email, :class => "form-control my-form" %>
+    <hr>
+    <%= f.submit "登録する", :class => "btn btn-primary" %>
+    <% end %>
+    <hr>
+    <a href="/users/<%= @user.id %>" class="btn btn-info">ユーザー情報に戻る</a>
+    <hr>
+    <%= link_to 'ユーザーを削除する', @user, method: :delete, data: {confirm: '本当に削除しますか？'}  ,:class=>"btn btn-danger"%>
+  <% end %>
+<% end %>

@@ -10,6 +10,44 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">SanmeiApp Top</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><a href="/users/<%= current_user.id %>">ユーザー情報</a></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><a href="/users/sign_up">登録する</a></li>
+              <li><a href="/users/sign_in">ログインする</a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container main-page">
+      <% if notice %>
+      <br>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+      <br>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
   </body>
 </html>

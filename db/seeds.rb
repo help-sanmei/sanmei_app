@@ -558,3 +558,89 @@
 # Setsuiri.create(year:2051,setsuiri_str:"546556778877")
 # Setsuiri.create(year:0003,setsuiri_str:"646566788887")
 # Setsuiri.create(year:0004,setsuiri_str:"546556778877")
+
+
+          # 調候守護神 Array
+  
+shugoshins1=["437","437","30","73456","749","047","047","074","479","473","41790","7435"]
+
+shugoshins2=["3","3","30","30","035","0","03","03","306","034","08","35"]
+          
+shugoshins3=["956","91","97","97","91","970","97","97","95","90","19","1579"]
+          
+shugoshins4=["17","17","17","71","17","179","970","179","1735","1357","157","17"]
+          
+shugoshins5=["31","31","310","310","130","013","913","013","310","30","130","13"]
+          
+shugoshins6=["315","315","317","103","310","038","938","03","30","30","130","315"]
+          
+shugoshins7=["413","341","31945","4137","1490","9354","90","41","41","413","19","341"]
+          
+shugoshins8=["3915","3956","697","91","91","907","960","917","915","91","91","913"]
+          
+shugoshins9=["53","314","573","578","17","9708","078","7108","54","17","13","537"]
+          
+shugoshins10=["38","34","83","78","831","8","7890","7890","4","83","8190","7845"]
+
+            # 0    1    2    3    4    5    6    7    8    9    10
+#   d_10kan=["癸","甲","乙","丙","丁","戊","己","庚","辛","壬","癸"]
+
+# i =1
+# shugoshins1.each do |shugoshin|
+#           Shugoshin.create(kan_d:1,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+           
+# i =1
+# shugoshins2.each do |shugoshin|
+#           Shugoshin.create(kan_d:2,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+
+# i =1
+# shugoshins3.each do |shugoshin|
+#           Shugoshin.create(kan_d:3,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+
+# i =1
+# shugoshins4.each do |shugoshin|
+#           Shugoshin.create(kan_d:4,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+
+# i =1
+# shugoshins5.each do |shugoshin|
+#           Shugoshin.create(kan_d:5,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+
+# i =1
+# shugoshins6.each do |shugoshin|
+#           Shugoshin.create(kan_d:6,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+
+# i =1
+# shugoshins7.each do |shugoshin|
+#           Shugoshin.create(kan_d:7,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+
+# i =1
+# shugoshins8.each do |shugoshin|
+#           Shugoshin.create(kan_d:8,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+
+# i =1
+# shugoshins9.each do |shugoshin|
+#           Shugoshin.create(kan_d:9,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          
+
+# i =1
+# shugoshins10.each do |shugoshin|
+#           Shugoshin.create(kan_d:10,shi_m:i,shugoshin:shugoshin)
+#           i += 1
+# end          

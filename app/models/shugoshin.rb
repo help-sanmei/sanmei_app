@@ -1,0 +1,2 @@
+class Shugoshin < ApplicationRecord
+end

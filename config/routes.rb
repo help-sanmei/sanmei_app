@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'meishikis/index'
-  root 'home#top'
-  get 'users/new'
+  devise_for :users
+  resources :users, :only => [:show, :edit, :update, :destroy]
+  
   get 'home/top'
-  get 'users/test' => 'users#test'
   get 'meishikis/test' => 'meishikis#test'
   post 'meishikis/create' => 'meishikis#create'
-  get 'users/result' => 'users#result'
+  root 'users#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,7 +1,6 @@
-<img src="" alt="" width="1" height="10&quot;">
-  <table width="100%" background-color: rgba( 204, 255, 204, 0.55 )>
-     <tbody>
-     	<tr>
+<table width="100%" background-color: rgba( 204, 255, 204, 0.55 )>
+  <tbody>
+     <tr>
         <td><div align="center"><font size="5">名前と生年月日を入力して下さい。</font>
 
         <%= form_tag ("/meishikis/create") do %>
@@ -234,12 +233,13 @@
 								<option value="31">31</option>
 							</select>日
 
-                   <input type="submit" value="計算する" >
-                 </div>
-         <% end %>
+                   <input type="submit" value="計算する" class="btn btn-info btn-xs" >
+            </div>
+        <% end %>
+
                 
-     </td>
-    </tr>
-  </tbody>
+     		</td>
+    	</tr>
+  	</tbody>
 </table>
 

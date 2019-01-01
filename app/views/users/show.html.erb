@@ -1,0 +1,12 @@
+<h1>ユーザー情報</h1>
+<% if user_signed_in? %>
+  <% if @user.id == current_user.id %>
+    <hr>
+    <p>名前：<%= @user.family_name %><%= @user.first_name %>さん</p>
+    <hr>
+    <p>メールアドレス：<%= @user.email%></p>
+    <hr>
+    <p><a href="/users/<%= @user.id %>/edit" class="btn btn-success">ユーザー情報を編集する</a>
+  <% end %>
+<% end %>
+<p><a href="/" class="btn btn-info">トップに戻る</a></p>
