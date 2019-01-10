@@ -62,10 +62,20 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'chart-js-rails'
-
+gem 'jquery-rails' 
+gem 'jquery-turbolinks'
+gem 'jquery-ui-rails'
 gem 'therubyracer'
-# gem 'less-rails'
 gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'execjs'
 gem 'devise'
+
+gem 'cocoon'
+
+gem 'nested_form_fields'
+	
+gem 'nested_form'
+gem 'jquery-turbolinks'
+
+

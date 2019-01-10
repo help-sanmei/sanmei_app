@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_223449) do
+ActiveRecord::Schema.define(version: 2019_01_02_192408) do
 
   create_table "gogyocngs", force: :cascade do |t|
     t.integer "shi"
@@ -99,10 +99,38 @@ ActiveRecord::Schema.define(version: 2018_12_21_223449) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "staff_energies", force: :cascade do |t|
+    t.integer "energy_num"
+    t.integer "energy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.string "family_name"
+    t.string "first_name"
+    t.string "gender"
+    t.date "birthday"
+    t.string "department"
+    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status"
+    t.integer "team_id"
+  end
+
   create_table "surigogyos", force: :cascade do |t|
     t.integer "shi"
     t.integer "setsuiri"
     t.integer "surigogyo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "team_name"
+    t.text "team_description"
+    t.integer "max_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

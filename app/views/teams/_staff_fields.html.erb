@@ -1,0 +1,19 @@
+<fieldset>
+<%= f.hidden_field :_destroy %>
+<%= f.hidden_field :status, :value => 0 %>
+<td>
+<%= f.text_field :family_name, class: 'form-control' %>
+</td>
+<td>
+<%= f.text_field :first_name, class: 'form-control' %>
+</td>
+<td>
+<%= f.date_field :birthday, class: 'form-control' %>
+</td>
+<td>
+<%= f.select(:gender, [['男性', "m"], ['女性', "f"]], class: 'form-control') %>
+</td>
+<td>
+<%= link_to "Delete", '#', class: "remove_fields btn btn-danger", role: 'button' %>
+</td>
+</fieldset>

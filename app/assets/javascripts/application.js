@@ -10,8 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require nested_form_fields
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 //= require Chart.min
+
+
