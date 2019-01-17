@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_192408) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"
+    t.integer "status"    # 0:not selected 1:selected
     t.integer "team_id"
   end
 

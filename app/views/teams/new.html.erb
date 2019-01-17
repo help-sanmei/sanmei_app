@@ -25,15 +25,25 @@
                <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-
-                <%= f.fields_for :staffs do |builder| %>
-                  <%= render "staff_fields", f: builder %>
-                <% end %>
-            
-          </tbody>
+ 
+          
+            <tbody id='detail-association-insertion-point'>
+              <%= f.fields_for :staffs do |builder| %>
+                <%= render 'staff_fields', f: builder %>
+              <% end %>
+            </tbody>
+          
+          
+          
       </table>
-      <%= link_to_add_fields "Add new", f, :staffs, class: 'btn btn-primary', role: 'button' %>
+      
+         <%= link_to_add_association 'Add new', f, :staffs,
+          class: 'btn btn-default',
+          data: {
+            association_insertion_node: '#detail-association-insertion-point',
+            association_insertion_method: 'append' }
+         %>
+
       <br><br>
       <%= f.submit '登録', class: 'btn btn-primary' %>
 
