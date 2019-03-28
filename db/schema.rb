@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_192408) do
+ActiveRecord::Schema.define(version: 2019_03_20_194500) do
 
   create_table "gogyocngs", force: :cascade do |t|
     t.integer "shi"
@@ -115,8 +115,33 @@ ActiveRecord::Schema.define(version: 2019_01_02_192408) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"    # 0:not selected 1:selected
+    t.integer "status"
     t.integer "team_id"
+    t.integer "im_kd"
+    t.integer "im_km"
+    t.integer "im_ky"
+    t.integer "im_sd"
+    t.integer "im_sm"
+    t.integer "im_sy"
+    t.integer "ym_sn"
+    t.integer "ym_jy"
+    t.integer "ym_sw"
+    t.integer "ym_sc"
+    t.integer "ym_se"
+    t.integer "ym_jd"
+    t.integer "ym_ss"
+    t.integer "ym_jm"
+    t.integer "moku"
+    t.integer "ka"
+    t.integer "dou"
+    t.integer "gon"
+    t.integer "sui"
+    t.integer "im_tx"
+    t.integer "energy_1"
+    t.integer "energy_2"
+    t.integer "energy_3"
+    t.integer "energy_4"
+    t.integer "energy_5"
   end
 
   create_table "surigogyos", force: :cascade do |t|

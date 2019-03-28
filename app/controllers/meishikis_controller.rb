@@ -29,7 +29,7 @@ class MeishikisController < ApplicationController
 
   
   def create
-    @test = "動いたよ"
+
   logger.debug("======================= y_inp = #{params[:y_inp]}")
   logger.debug("======================= y_inp = #{params[:m_inp]}")
   logger.debug("======================= y_inp = #{params[:d_inp]}")
@@ -95,7 +95,7 @@ class MeishikisController < ApplicationController
 	d_12shiggno=[0,5,3,1,1,3,2,2,3,4,4,3,5]
   d_10shu=["　　","貫索","石門","鳳閣","調舒","祿存","司祿","車騎","牽牛","龍高","玉堂"]
 	d_10urashu=["　　","貫索","石門","龍高","玉堂","車騎","牽牛","祿存","司祿","鳳閣","調舒"]
-  d_12jyuen=["　　","天馳 1","天極 2","天報 3","天胡 4","天庫 5","天印 6","天恍 7","天堂 8","天貴 9","天南 10","天祿 11","天将 12"]
+  d_12jyuen=["　　","天馳 1","天���� 2","天報 3","天胡 4","天庫 5","天印 6","天恍 7","天堂 8","天貴 9","天南 10","天祿 11","天将 12"]
 	d_12jyu=["　　","馳","極","報","胡","庫","印","恍","堂","貴","南","祿","将"]
   d_12jyuenergy=[" ","1","2","3","4","5","6","7","8","9","10","11","12"]
 	d_gousan=[" ","半会","支合","方三位","冲","刑","破","害","支合・破","刑・冲","刑・害","刑・破","支合・刑・破"]
@@ -112,7 +112,7 @@ class MeishikisController < ApplicationController
               [[0,0],["金","水、木"],["土、金","木、火"],["木、金","土、火"],["木、火","金、水"],["木","金、水"]],
               [[0,0],["火、土","木、水"],["金、水","火、土"],["木、金","土、火"],["火","金"],["土、火","水、金"]],
               [[0,0],["金","木、水"],["金、水","火、木"],["木、金","土、火"],["水、火","金、土"],["土、木、火","水、金"]],
-              [[0,0],["金","木"],["金","火、土"],["木、金","火、土"],["火、水","金"],["土、木","水、金"]]];
+              [[0,0],["金","木"],["金","��������"],["木、金","火、土"],["火、水","金"],["土、木","水、金"]]];
 
   #裏蔵干
 	d_10uraten=[" ","癸","癸","戊","乙","乙","戊","己","丁","戊","辛","辛","甲"]
@@ -353,8 +353,8 @@ class MeishikisController < ApplicationController
   
   
   
-      logger.debug("im_kd = #{im_kd} ,im_km = #{im_km},im_ky=#{im_ky},im_sd = #{im_sd},im_sm = #{im_sm},im_sy = #{im_sy},im_zy = #{im_zy},im_zm = #{im_zm},im_zd = #{im_zd}")
-      logger.debug("ym_sc = #{ym_sc} ,ym_se = #{ym_se},ym_sw=#{ym_sw},ym_sn = #{ym_sn},ym_ss = #{ym_ss},ym_jy = #{ym_jy},im_jm = #{ym_jm},ym_jd = #{ym_jd}")
+      logger.debug("im_kd = #{im_kd} ,im_km = #{im_km},im_ky=#{im_ky},im_sd = #{im_sd},im_sm = #{im_sm},im_sy = #{im_sy}")
+      logger.debug("ym_sn = #{ym_sn} ,ym_jy = #{ym_jy},ym_sw=#{ym_sw},ym_sc = #{ym_sc},ym_se = #{ym_se},ym_jd = #{ym_jd},ym_ss = #{ym_ss},ym_jm = #{ym_jm}")
       logger.debug("shugoshin_ar=#{calc_shugoshin(im_sm,im_kd)}")
        moku=0
        ka=0
@@ -443,10 +443,6 @@ class MeishikisController < ApplicationController
       end
       
       
-		  # logger.debug("calc_gogyo_cng(im_sd, im_sm) = #{calc_gogyo_cng(im_sd, im_sm)}")
-		  # logger.debug("calc_gogyo_cng(im_sd, im_sy) = #{calc_gogyo_cng(im_sd, im_sy)}")
-      # logger.debug("calc_gogyo_cng(im_sm, im_sy) = #{calc_gogyo_cng(im_sm, im_sy)}")
-
   
   
   
@@ -569,6 +565,7 @@ class MeishikisController < ApplicationController
     isho_flag2=0
     isho_flag3=0
     gg_adj_isho=[0,0,0,0,0,0]   #五行位相法表での増減array 初期化
+    
   
     if calc_gogyo_shigo(im_sd,im_sm)!=0
       isho_flag1=1 #日月 支合
@@ -712,7 +709,7 @@ class MeishikisController < ApplicationController
       gg_adj_isho[2] += 1
   
       when 9
-      #酉辰子 月支が辰
+      #酉辰子 月支が���
       gg_adj_isho[3]=gg_adj_isho[3]-2
       if dou>=3       #土>=3 （土+1）
         gg_adj_isho[3]=gg_adj_isho[3]+2
@@ -852,7 +849,7 @@ class MeishikisController < ApplicationController
             end
           end
         elsif isho_flag2==2
-          #日支・年支 
+          #��支��年�� 
           if (calc_gogyo_hankai(im_sd,im_sy)==1) || (calc_gogyo_hankai(im_sd,im_sy)==2) || (calc_gogyo_hankai(im_sd,im_sy)==3) || (calc_gogyo_hankai(im_sd,im_sy)==4) || (calc_gogyo_hankai(im_sd,im_sy)==5)
             if d_12shiggno[im_sd]!=calc_gogyo_hankai(im_sd,im_sy)
               gg_adj_isho[d_12shiggno[im_sd]] -= 1
@@ -922,6 +919,8 @@ class MeishikisController < ApplicationController
           end
         end
       end  
+      
+      
   
   
         #半会1個 ---------
@@ -933,12 +932,13 @@ class MeishikisController < ApplicationController
               gg_adj_isho[d_12shiggno[im_sd]] -= 1
               gg_adj_isho[calc_gogyo_hankai(im_sd,im_sm)] += 1
             end
-            #月支!=化ける支 → 化ける（月支が化けるときは２個増減） 、 月支=化ける支 → 変化なし
+            #月支!=化ける支 → 化ける（月支が化けるときは２個増減） 、 月支=化ける�� → 変化なし
             if d_12shiggno[im_sm]!=calc_gogyo_hankai(im_sd,im_sm)
               gg_adj_isho[d_12shiggno[im_sm]]=gg_adj_isho[d_12shiggno[im_sm]]-2
               gg_adj_isho[calc_gogyo_hankai(im_sd,im_sm)]=gg_adj_isho[calc_gogyo_hankai(im_sd,im_sm)]+2
             end
           end
+          
         
         elsif isho_flag2==2
           #日支・年支 
@@ -956,11 +956,16 @@ class MeishikisController < ApplicationController
           if (calc_gogyo_hankai(im_sm,im_sy)==1) || (calc_gogyo_hankai(im_sm,im_sy)==2) || (calc_gogyo_hankai(im_sm,im_sy)==3) || (calc_gogyo_hankai(im_sm,im_sy)==4) || (calc_gogyo_hankai(im_sm,im_sy)==5)
             #月支!=化ける支 → 化ける（月支が化けるときは２個増減） 、 月支=化ける支 → 変化なし
             if d_12shiggno[im_sm]!=calc_gogyo_hankai(im_sm,im_sy)
-              gg_adj_isho[d_12shiggno[im_sm]]=gg_adj_isho[d_12shiggno[im_sm]]-2,gg_adj_isho[calc_gogyo_hankai(im_sm,im_sy)]=gg_adj_isho[calc_gogyo_hankai(im_sm,im_sy)]+2
+              gg_adj_isho[d_12shiggno[im_sm]]=gg_adj_isho[d_12shiggno[im_sm]]-2
+              gg_adj_isho[calc_gogyo_hankai(im_sm,im_sy)]=gg_adj_isho[calc_gogyo_hankai(im_sm,im_sy)]+2
+             
+            
             elsif d_12shiggno[im_sy]!=calc_gogyo_hankai(im_sm,im_sy)
               gg_adj_isho[d_12shiggno[im_sy]] -= 1
               gg_adj_isho[calc_gogyo_hankai(im_sm,im_sy)] += 1
+              
             end  
+
           end
         end
   
@@ -1018,6 +1023,7 @@ class MeishikisController < ApplicationController
         end
       end
   
+  
     #干合表による五行の調整
     gg_adj_kango_base=[0,0,0,0,0,0]  #天干の変化前五行を配列に
     gg_adj_kango_base[calc_gogyo_kan(im_kd)] += 1
@@ -1045,7 +1051,7 @@ class MeishikisController < ApplicationController
         im_kd_c=9,im_km_c=10
       elsif im_kd==8 && d_12shiggno[im_sm]==5
         im_kd_c=10,im_km_c=9
-      elsif im_kd==4 && d_12shiggno[im_sm]==1  #壬丁干合（化木）で月支が木なら化ける
+      elsif im_kd==4 && d_12shiggno[im_sm]==1  #壬丁干合��化木）で��支が��なら化��る
         im_kd_c=2,im_km_c=1
       elsif im_kd==9 && d_12shiggno[im_sm]==1
         im_kd_c=1,im_km_c=2
@@ -1136,11 +1142,12 @@ class MeishikisController < ApplicationController
   
     gogyo_base=[0,moku,ka,dou,gon,sui]       #← 基本五行に三合会局・方三位を加味してます
     gogyo_last=[0,0,0,0,0,0]
+    
   
     (0...6).each do |i|
+     
       gogyo_last[i]=gogyo_base[i]+gg_adj_isho[i]-gg_adj_kango_base[i]+gg_adj_kango[i]
     end
-  
     #位相法表で酉辰(化金・土)、卯戌(化木・土) 調整後五行に土>=3あれば。
     toritatu_flag=0 #酉辰 組合せ個数
     if calc_gogyo_cng(im_sd,im_sm)==6
@@ -1220,12 +1227,13 @@ class MeishikisController < ApplicationController
       end
     end
   
-  
+ 
     #卯（木）戌（土）調整
     if  (sangou_flag==0) && (uinu_flag==1) && (special_flag==0) #１組の場合
       if gogyo_last[3]>=3
         if im_sm==4
-          gogyo_last[3]=gogyo_last[3]+2,gogyo_last[1]=gogyo_last[1]-2 #土>=３ しかも 月支が卯（木）なので 土+2 木-2
+          gogyo_last[3]=gogyo_last[3]+2
+          gogyo_last[1]=gogyo_last[1]-2 #土>=３ しかも 月支が卯（木）なので 土+2 木-2
         end
         if im_sm==11
           gogyo_last[3] += 1
@@ -1233,7 +1241,8 @@ class MeishikisController < ApplicationController
         end
       elsif
         if im_sm==11
-          gogyo_last[3]=gogyo_last[3]-2,gogyo_last[1]=gogyo_last[1]+2
+          gogyo_last[3]=gogyo_last[3]-2
+          gogyo_last[1]=gogyo_last[1]+2
         end
         if im_sm==4
           gogyo_last[3] -= 1
@@ -1252,7 +1261,7 @@ class MeishikisController < ApplicationController
         end
       elsif
         if im_sm==11
-          gogyo_last[3]=gogyo_last[3]-2,gogyo_last[1]=gogyo_last[1]+2 #月支が戌（土）で残りが卯（木）２個で化木なので 土-2 木+2
+          gogyo_last[3]=gogyo_last[3]-2,gogyo_last[1]=gogyo_last[1]+2 #月支��戌（土��で残��が��（��）２個で化木なので 土-2 木+2
         end
         if im_sm==4
           gogyo_last[3] -= 1
@@ -1264,7 +1273,8 @@ class MeishikisController < ApplicationController
     if  (sangou_flag==0) && (uinu_flag==3) && (special_flag==0) #地支に木１個と土２個の場合
       if gogyo_last[3]>=3
         if im_sm==4
-          gogyo_last[3]=gogyo_last[3]+2,gogyo_last[1]=gogyo_last[1]-2 #土>=３ しかも 月支が卯（木）残りが戌(土）２個なので 土+2 木-2
+          gogyo_last[3]=gogyo_last[3]+2
+          gogyo_last[1]=gogyo_last[1]-2 #土>=３ しかも 月支が卯（木）残りが戌(土）２個なので 土+2 木-2
           if im_sm==11
             gogyo_last[3] += 1
             gogyo_last[1] -= 1 #月支が戌（土）残りが卯（木）戌（土）なので 土+1 木-1
@@ -1281,7 +1291,6 @@ class MeishikisController < ApplicationController
         end
       end
     end
-  
   
       moku=gogyo_last[1]
       ka=gogyo_last[2]
@@ -1687,7 +1696,7 @@ class MeishikisController < ApplicationController
         
         
         if  (a-c).abs==5 && calc_gousan(b,d)==2
-            x="干合支合"
+            x="���合支合"
         elsif  (a-c).abs==5 && calc_gousan(b,d)==7
             x="干合支害"
         elsif  (a-c).abs==5 && calc_gousan(b,d)==5
@@ -1738,7 +1747,7 @@ class MeishikisController < ApplicationController
         elsif  (a-c).abs==5 && calc_gousan(b,d)==5
           x="干合支刑"
         elsif  (a-c).abs==5 && calc_gousan(b,d)==8
-          x="干合合・破"
+          x="干合��・破"
         elsif  (a-c).abs==5 && calc_gousan(b,d)==9
           x="干合合・干刑・冲"
         elsif  (a-c).abs==5 && calc_gousan(b,d)==10
@@ -1803,7 +1812,7 @@ class MeishikisController < ApplicationController
           elsif a==c && b==d
             x="律音"
           elsif ((a==5) && (c==3)) || ((a==3) && (c==5)) || ((a==6) && (c==4)) || ((a==4) && (c==6))
-            x=="律音"
+            x=="律���"
           elsif (a==c) && (b-d.abs==6)
             x="納音"
           elsif  x==0
@@ -1868,7 +1877,7 @@ class MeishikisController < ApplicationController
         kangou_flag=1
       end
   
-      #天剋地冲 検査
+      #天剋���冲 検査
       tenkoku_flag=0
       if (calc_soukoku(im_kd,im_ky)==3 || calc_soukoku(im_kd,im_ky)==4) && (im_sy-im_sd).abs==6
         tenkoku_flag=1  #年・日
@@ -2001,8 +2010,8 @@ class MeishikisController < ApplicationController
            end
         return b
       end
-      
-      logger.debug("基本五行=#{moku},#{ka},#{dou},#{gon},#{sui}")
+    
+      logger.debug("moku ka dou gon sui =#{moku},#{ka},#{dou},#{gon},#{sui}")
 
       
       #originalの2408行目までrubyに変換
@@ -2013,7 +2022,43 @@ class MeishikisController < ApplicationController
 
   end # def create
   
-          private
+  def makeInpLeadSub
+    @file = params[:upload][:datafile]
+  end
+  
+  def inpLeaderSub
+    require 'roo'
+    Roo::Spreadsheet.open("/test.xlsx", extension: :xlsx)
+    xlsx = Roo::Excelx.new("/test.xlsx")
+    xlsx.default_sheet = 'main'
+    logger.debug("========================== 3.3 = #{xlsx.cell(3,3)}")
+    redirect_to root_path
+  end
+  
+  
+  
+  
+  
+  
+  
+      private
+      
+          def open_spreadsheet_roo(uploaded_file)
+            case File.extname(uploaded_file.original_filename)
+              when '.xlsx' then
+                Roo::Spreadsheet.open(uploaded_file.path, extension: :xlsx)
+              when '.ods' then
+                Roo::Spreadsheet.open(uploaded_file.path, extension: :ods)
+              when '.csv' then
+                Roo::Spreadsheet.open(uploaded_file.path, extension: :csv)
+              else
+                return false
+            end
+          end
+                
+      
+      
+      
           #28元
           def calc_zokan(sno, dte)
             if dte>20

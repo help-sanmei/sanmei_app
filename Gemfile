@@ -76,5 +76,6 @@ gem 'cocoon'
 gem 'nested_form_fields'
 	
 gem 'nested_form'
+gem 'roo'
 
 

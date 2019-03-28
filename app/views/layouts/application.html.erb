@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>算命人事</title>
+    <title>天命人事</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,13 +19,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
           </button>
-          <a href="/" class="navbar-brand">SanmeiApp Top</a>
+          <a href="/" class="navbar-brand">天命人事</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li><%= link_to 'スタッフ登録', new_team_path %></li>
-              <li><%= link_to 'チーム登録', new_team_path %></li>
+              <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">チーム関連<span class="sr-only">(current)</span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><%= link_to 'チーム登録', new_team_path, :class => "dropdown-item" %></li>
+                        <li><%= link_to 'チーム一覧', teams_path, :class => "dropdown-item" %></li>
+                        <li><%= link_to 'スタッフ確認', new_team_path, :class => "dropdown-item" %></li>
+                    </ul>
+                </li>
               <li><a href="/users/<%= current_user.id %>">ユーザー情報</a></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
             <% else %>

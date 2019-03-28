@@ -1,4 +1,3 @@
-<%= form_for(@team, html:{class: 'form-horizontal'}) do |f| %>
 <h3>スタッフ選択</h3>
      <div class="field">
       チーム名
@@ -15,12 +14,11 @@
       <%= @team.max_number %>
      </div>
      
-     <input type="hidden" value="<%= @team.id %>" >
 
       <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-               <th>選択</th>
+               <!--<th>選択</th>-->
                <th>苗字</th>
                <th>名前</th>
                <th>生年月日</th>
@@ -32,11 +30,11 @@
 
                   <% @staffs.each do |staff| %>
                      <tr>
-                      <% if staff.status == 1 %>
-                       <td><%= check_box 'staff', "status", { multiple: true, :checked => true}, staff.id %></td>
-                      <% else %>
-                       <td><%= check_box 'staff', "status", { multiple: true, :checked => false}, staff.id %></td>
-                      <% end %>
+                      <!--<% if staff.status == 1 %>-->
+                      <!-- <td><%= check_box 'staff', "status", { multiple: true, :checked => true}, staff.id %></td>-->
+                      <!--<% else %>-->
+                      <!-- <td><%= check_box 'staff', "status", { multiple: true, :checked => false}, staff.id %></td>-->
+                      <!--<% end %>-->
                       <td><%= staff.family_name %></tsd>
                       <td><%= staff.first_name %></td>
                       <td><%= staff.birthday %></td>
@@ -48,8 +46,10 @@
           
           
        </table>
+      <%= form_tag("/teams/team_evaluate", :method => :post) do %>
+        <%= hidden_field_tag :team_id, @team.id %>
+        <%= submit_tag("鑑定") %>
+      <% end %>
 
 
       <br><br>
-      <%= f.submit %>
-<% end %>

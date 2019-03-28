@@ -1,7 +1,9 @@
+<!-- ５人分のエネルギーデーター取得後に配列化 -->
 <% @energies = [] %>
 <% @staffs.each do |s| %>
   <% energy = [] %>
-   <% energy.push(s.name) %>
+   <% name = s.family_name + s.first_name %>
+   <% energy.push(name) %>
    <% energy.push(s.energy_1) %>
    <% energy.push(s.energy_2) %>
    <% energy.push(s.energy_3) %>
@@ -10,9 +12,26 @@
    <% @energies.push(energy) %>
 <% end %>
 
+
+<!-- 取得したエネルギー配列をjsに送信 -->
+<input name="arr_json" type="hidden" value=<%= @energies.to_json.html_safe %> class='arr_json'/>
+<input name="match_json" type="hidden" value=<%= @match_deg.to_json.html_safe %> class='match_json'/>
 <script>
-  const energies = <%= @energies %>;
+  // arr_json取得（エネルギー配列取得）
+  var arrJson = $('.arr_json').val();
+  // arr_jsonをパースし配列にする
+  var arr = JSON.parse(arrJson);
+  //   alert(arr[2]);
+  
+  // arr_json取得（エネルギー配列取得）
+  var matchJson = $('.match_json').val();
+  // arr_jsonをパースし配列にする
+  var match_deg = JSON.parse(matchJson);
+  //   alert(arr[2]);  
+  
+  
 </script>
+
 
 <!--レーダーチャート1-->
 <div class="chart_container" >
@@ -31,26 +50,6 @@ var myRadarChart = new Chart(ctx, {
       labels: ["デザイン", "オリジナリティ", "コンテンツ", "アクセサビリティ", "写真"],
       //データセット
       datasets: [
-          // {
-          //     //凡例
-          //     label: "A社",
-          //     //背景色
-          //     backgroundColor: "rgba(179,181,198,0.2)",
-          //     //枠線の色
-          //     borderColor: "rgba(179,181,198,1)",
-          //     //結合点の背景色
-          //     pointBackgroundColor: "rgba(179,181,198,1)",
-          //     //結合点の枠線の色
-          //     pointBorderColor: "#fff",
-          //     //結合点の背景色（ホバーしたとき）
-          //     pointHoverBackgroundColor: "#fff",
-          //     //結合点の枠線の色（ホバーしたとき）
-          //     pointHoverBorderColor: "rgba(179,181,198,1)",
-          //     //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
-          //     hitRadius: 5,
-          //     //グラフのデータ
-          //     data: <%= @energy_sum2.slice(1..-1) %>
-          // },
           {
               //凡例
               label: "B社",
@@ -69,7 +68,7 @@ var myRadarChart = new Chart(ctx, {
               //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
               hitRadius: 5,
               //グラフのデータ
-              data: energies[0]
+              data: arr[0]
           }
       ]
   }
@@ -97,29 +96,9 @@ var myRadarChart = new Chart(ctx, {
     
           //データセット
           datasets: [
-              // {
-              //     //凡例
-              //     label: "A社",
-              //     //背景色
-              //     backgroundColor: "rgba(179,181,198,0.2)",
-              //     //枠線の色
-              //     borderColor: "rgba(179,181,198,1)",
-              //     //結合点の背景色
-              //     pointBackgroundColor: "rgba(179,181,198,1)",
-              //     //結合点の枠線の色
-              //     pointBorderColor: "#fff",
-              //     //結合点の背景色（ホバーしたとき）
-              //     pointHoverBackgroundColor: "#fff",
-              //     //結合点の枠線の色（ホバーしたとき）
-              //     pointHoverBorderColor: "rgba(179,181,198,1)",
-              //     //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
-              //     hitRadius: 5,
-              //     //グラフのデータ
-              //     data: <%= @energy_sum2.slice(1..-1) %>
-              // },
               {
                   //凡例
-                  label: "B社",
+                  label: match_deg[0],
                   //背景色
                   backgroundColor: "rgba(255,99,132,0.2)",
                   //枠線の色
@@ -135,7 +114,7 @@ var myRadarChart = new Chart(ctx, {
                   //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
                   hitRadius: 5,
                   //グラフのデータ
-                  data: energies[1]
+                  data: arr[1]
               }
           ]
       }
@@ -162,29 +141,9 @@ var myRadarChart = new Chart(ctx, {
           labels: ["D", "O", "C", "A", "P"],      
           //データセット
           datasets: [
-              // {
-              //     //凡例
-              //     label: "A社",
-              //     //背景色
-              //     backgroundColor: "rgba(179,181,198,0.2)",
-              //     //枠線の色
-              //     borderColor: "rgba(179,181,198,1)",
-              //     //結合点の背景色
-              //     pointBackgroundColor: "rgba(179,181,198,1)",
-              //     //結合点の枠線の色
-              //     pointBorderColor: "#fff",
-              //     //結合点の背景色（ホバーしたとき）
-              //     pointHoverBackgroundColor: "#fff",
-              //     //結合点の枠線の色（ホバーしたとき）
-              //     pointHoverBorderColor: "rgba(179,181,198,1)",
-              //     //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
-              //     hitRadius: 5,
-              //     //グラフのデータ
-              //     data: <%= @energy_sum2.slice(1..-1) %>
-              // },
               {
                   //凡例
-                  label: "B社",
+                  label: match_deg[1],
                   //背景色
                   backgroundColor: "rgba(255,99,132,0.2)",
                   //枠線の色
@@ -200,7 +159,7 @@ var myRadarChart = new Chart(ctx, {
                   //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
                   hitRadius: 5,
                   //グラフのデータ
-                  data: energies[2]
+                  data: arr[2]
               }
           ]
       }
@@ -228,29 +187,9 @@ var myRadarChart = new Chart(ctx, {
           
           //データセット
           datasets: [
-              // {
-              //     //凡例
-              //     label: "A社",
-              //     //背景色
-              //     backgroundColor: "rgba(179,181,198,0.2)",
-              //     //枠線の色
-              //     borderColor: "rgba(179,181,198,1)",
-              //     //結合点の背景色
-              //     pointBackgroundColor: "rgba(179,181,198,1)",
-              //     //結合点の枠線の色
-              //     pointBorderColor: "#fff",
-              //     //結合点の背景色（ホバーしたとき）
-              //     pointHoverBackgroundColor: "#fff",
-              //     //結合点の枠線の色（ホバーしたとき）
-              //     pointHoverBorderColor: "rgba(179,181,198,1)",
-              //     //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
-              //     hitRadius: 5,
-              //     //グラフのデータ
-              //     data: <%= @energy_sum2.slice(1..-1) %>
-              // },
               {
                   //凡例
-                  label: "B社",
+                  label: match_deg[2],
                   //背景色
                   backgroundColor: "rgba(255,99,132,0.2)",
                   //枠線の色
@@ -266,7 +205,7 @@ var myRadarChart = new Chart(ctx, {
                   //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
                   hitRadius: 5,
                   //グラフのデータ
-                  data: energies[3]
+                  data: arr[3]
               }
           ]
       }
@@ -293,29 +232,9 @@ var myRadarChart = new Chart(ctx, {
           labels: ["D", "O", "C", "A", "P"],
           //データセット
           datasets: [
-              // {
-              //     //凡例
-              //     label: "A社",
-              //     //背景色
-              //     backgroundColor: "rgba(179,181,198,0.2)",
-              //     //枠線の色
-              //     borderColor: "rgba(179,181,198,1)",
-              //     //結合点の背景色
-              //     pointBackgroundColor: "rgba(179,181,198,1)",
-              //     //結合点の枠線の色
-              //     pointBorderColor: "#fff",
-              //     //結合点の背景色（ホバーしたとき）
-              //     pointHoverBackgroundColor: "#fff",
-              //     //結合点の枠線の色（ホバーしたとき）
-              //     pointHoverBorderColor: "rgba(179,181,198,1)",
-              //     //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
-              //     hitRadius: 5,
-              //     //グラフのデータ
-              //     data: <%= @energy_sum2.slice(1..-1) %>
-              // },
               {
                   //凡例
-                  label: "B社",
+                  label: match_deg[3],
                   //背景色
                   backgroundColor: "rgba(255,99,132,0.2)",
                   //枠線の色
@@ -331,7 +250,7 @@ var myRadarChart = new Chart(ctx, {
                   //結合点より外でマウスホバーを認識する範囲（ピクセル単位）
                   hitRadius: 5,
                   //グラフのデータ
-                  data: energies[4]
+                  data: arr[4]
               }
           ]
       }

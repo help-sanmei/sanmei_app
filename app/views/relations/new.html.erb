@@ -1,0 +1,5 @@
+<h1>上司部下関係値Excelのアップロード</h1>
+<%= form_tag("/meishikis/inpLeaderSub", {:multipart => true} ) do %>
+   <%= file_field :upload, :datafile%>
+   <%= submit_tag  "Upload"  %>
+<% end %>

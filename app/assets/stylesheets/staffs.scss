@@ -1,3 +1,18 @@
 // Place all the styles related to the staffs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.how-to-use iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.how-to-use .iframe-wrapper {
+  padding-bottom: 56.25%;
+  height: 0;
+  position: relative;
+}
